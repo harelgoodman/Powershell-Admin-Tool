@@ -68,14 +68,14 @@ Switch ($selection){
     $SM=Read-Host "enter subnet mask (255.255.255.0)"
     Add-DHCPServerv4Scope -StartRange $SR -ComputerName $CN -EndRange $ER -Name $name -SubnetMask $SM -State Active}
 
-6 {$ip = Read-Host "anter scope ip (10.0.0.0)"
-    $PSname = Read-Host "anter partner server name"
-    $SSname = Read-Host "anter server scope owner"
-    $LBP = Read-Host "anter a prasent to load balancent(1-100)"
+6 {$ip = Read-Host "enter scope ip (10.0.0.0)"
+    $PSname = Read-Host "enter partner server name"
+    $SSname = Read-Host "enter server scope owner"
+    $LBP = Read-Host "enter a prasent to load balancent(1-100)"
     Add-DHCPServerv4Failover -ScopeId $ip -PartnerServer $PSname -ComputerName $SSname -LoadBalancePercent $LBP -AutoStateTransition $true }
 
-7 { $name=Read-Host "anter the share name"
-    $share=Read-Host "anter a share path for the folder\disc: F:\wow"
+7 { $name=Read-Host "enter the share name"
+    $share=Read-Host "enter a share path for the folder\disc: F:\wow"
         New-SmbShare -Name $name  -Path $share }
 
 
@@ -126,11 +126,11 @@ $string = ","
     Add-ADGroupMember -Identity $group_from_list -Members $users}
 
 
-15 {$root=Read-Host "anter folder path"
+15 {$root=Read-Host "enter folder path"
     Backup-GPO -Path $root -All}
 
 
-16 {$root=Read-Host "anter folder path"
+16 {$root=Read-Host "enter folder path"
     $domain=Read-Host "enter domain name"
     $server_name=Read-Host "enter server name"
     Restore-GPO -All -Path $root -Domain $domain -Server $server_name
